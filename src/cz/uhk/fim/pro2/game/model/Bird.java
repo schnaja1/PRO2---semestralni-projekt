@@ -6,6 +6,9 @@ public class Bird {
 	private float speed;
 	private int lives;
 	
+	//TODO
+	//konstruktor,getry,setry,toString
+	
 	
 	public Bird(){
 		
