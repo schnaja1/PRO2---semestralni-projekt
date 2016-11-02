@@ -6,12 +6,50 @@ public class Bird {
 	private float speed;
 	private int lives;
 	
-	//TODO
-	//konstruktor,getry,setry,toString
+
+	public Bird(String name, float positionX, float positionY){
+		this.name=name;
+		this.positionX=positionX;
+		this.positionY=positionY;
+		lives=3;
+		speed=0;
+	}
 	
 	
-	public Bird(){
-		
+	public float getPositionY() {
+		return positionY;
+	}
+
+	public void setPositionY(float positionY) {
+		this.positionY = positionY;
+	}
+
+	public float getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(float speed) {
+		this.speed = speed;
+	}
+
+	public int getLives() {
+		return lives;
+	}
+
+	public void setLives(int lives) {
+		this.lives = lives;
+	}
+
+	public String getName(){
+		return name;
+	}
+	
+	public float getPositionX(){
+		return positionX;
+	}
+	
+	public void setPositionX(float positionX){
+		this.positionX=positionX;
 	}
 	
 	public void goUp(){
