@@ -1,10 +1,12 @@
 package cz.uhk.fim.pro2.game.model;
 
-import java.awt.Color;
+import com.sun.prism.paint.Color;
 
 public class Tube {
 	private float positionX;
 	private float height;
+	private Color color;
+	
 	public float getPositionX() {
 		return positionX;
 	}
@@ -25,13 +27,12 @@ public class Tube {
 		return height;
 	}
 
-	private Color color;
 	
-	public Tube(float positionX, float height, Color color) {
+	public Tube(float d, float e, Color green) {
 		super();
-		this.positionX = positionX;
-		this.height = height;
-		this.color = color;
+		this.positionX = d;
+		this.height = e;
+		this.color = green;
 	}
 	
 }

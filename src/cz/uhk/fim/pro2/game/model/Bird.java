@@ -2,12 +2,12 @@ package cz.uhk.fim.pro2.game.model;
 
 public class Bird {
 	private String name;
-	private float positionX, positionY;
-	private float speed;
+	private int positionX, positionY;
+	private int speed;
 	private int lives;
 	
 
-	public Bird(String name, float positionX, float positionY){
+	public Bird(String name, int positionX, int positionY){
 		this.name=name;
 		this.positionX=positionX;
 		this.positionY=positionY;
@@ -16,19 +16,19 @@ public class Bird {
 	}
 	
 	
-	public float getPositionY() {
+	public int getPositionY() {
 		return positionY;
 	}
 
-	public void setPositionY(float positionY) {
+	public void setPositionY(int positionY) {
 		this.positionY = positionY;
 	}
 
-	public float getSpeed() {
+	public int getSpeed() {
 		return speed;
 	}
 
-	public void setSpeed(float speed) {
+	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
 
@@ -44,11 +44,11 @@ public class Bird {
 		return name;
 	}
 	
-	public float getPositionX(){
+	public int getPositionX(){
 		return positionX;
 	}
 	
-	public void setPositionX(float positionX){
+	public void setPositionX(int positionX){
 		this.positionX=positionX;
 	}
 	
