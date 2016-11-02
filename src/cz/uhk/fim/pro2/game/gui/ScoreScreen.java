@@ -12,6 +12,9 @@ public class ScoreScreen extends Screen{
 		
 		JButton jButtonBack = new JButton("Back");
 		
+
+		jButtonBack.setBounds(20, 20, 80, 80);
+		
 		jButtonBack.addActionListener(new ActionListener(){
 			@Override
             public void actionPerformed(ActionEvent e) {

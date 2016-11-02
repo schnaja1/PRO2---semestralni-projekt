@@ -12,7 +12,9 @@ public class GameScreen extends Screen {
 		JButton jButtonBack = new JButton("Back");
 		JButton jButtonPause = new JButton("Pause");
 		add(jButtonBack);
-		add(jButtonPause);
+		add(jButtonPause);	
+		jButtonBack.setBounds(20, 20, 80, 80);
+		jButtonPause.setBounds(380,20,80,80);
 		
 		jButtonBack.addActionListener(new ActionListener(){
 			@Override
