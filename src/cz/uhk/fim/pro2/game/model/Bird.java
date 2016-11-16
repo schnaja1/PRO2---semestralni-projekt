@@ -1,6 +1,16 @@
 package cz.uhk.fim.pro2.game.model;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+
+import cz.uhk.fim.pro2.game.gui.MainFrame;
+
 public class Bird {
+	
+	private static final int GRAVITY = 300;
+	private static final int JUMP = 400;
+	
 	private String name;
 	private int positionX, positionY;
 	private int speed;
@@ -15,7 +25,57 @@ public class Bird {
 		speed=0;
 	}
 	
+	public void goUp(){
+		speed+=JUMP;
+	}
 	
+	public void catchHeart(){
+		
+	}
+	
+	public void die(){
+		
+	}
+	
+	public void addLive(){
+		
+	}
+	
+	public void removeLive(){
+		
+	}
+	
+	public void paint(Graphics g){
+		g.setColor(Color.BLUE);
+		Rectangle rectangle = getRectangle();
+		g.fillRect(
+			(int) rectangle.getX(),
+			(int)rectangle.getY(),
+			(int) rectangle.getHeight(),
+			(int) rectangle.getWidth());
+	}
+	public Rectangle getRectangle(){
+		return new Rectangle((int) positionX - 25,(int) positionY - 25,50, 50);
+	}
+	
+	public void update(float deltaTime){
+		positionY -=speed * deltaTime;
+		positionY += GRAVITY * deltaTime;
+		speed-=speed*deltaTime;
+	}
+	
+	public boolean collideWith(Tube tube){
+		Rectangle rectangle = getRectangle();
+		return rectangle.intersects(tube.getBottomRectangle()) || rectangle.intersects(tube.getTopRectangle());
+	}
+	public boolean collideWith(Heart heart){;
+		return getRectangle().intersects(heart.getRectangle());
+	}
+	
+	public boolean isOutOf(){
+		return this.getPositionY()<0 || this.getPositionY()>MainFrame.HEIGHT; 
+	}
+
 	public int getPositionY() {
 		return positionY;
 	}
@@ -52,24 +112,4 @@ public class Bird {
 		this.positionX=positionX;
 	}
 	
-	public void goUp(){
-		
 	}
-	
-	public void catchHeart(){
-		
-	}
-	
-	public void die(){
-		
-	}
-	
-	public void addLive(){
-		
-	}
-	
-	public void removeLive(){
-		
-	}
-
-}

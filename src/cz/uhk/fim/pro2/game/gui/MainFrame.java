@@ -4,13 +4,13 @@ import javax.swing.JFrame;
 
 public class MainFrame extends JFrame {
 	
-	public static final int WIDTH = 480;
-	public static final int HEIGHT = 800;
+	public final static int WIDTH = 480;
+	public final static int HEIGHT = 800;
 	
 	protected Screen actualScreen;
 	
 	public MainFrame(){
-		setSize(WIDTH, HEIGHT);
+		setSize(WIDTH,HEIGHT);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		setTitle("Flappy Bird");
