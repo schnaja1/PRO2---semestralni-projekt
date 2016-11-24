@@ -30,8 +30,20 @@ public class World {
 		}
 		for(Tube tube: tubes){
 			tube.update(deltaTime);
-			if(bird.collideWith(tube))
+			if(bird.collideWith(tube)){
 				worldListener.crashTube(tube);
+				tube.setState(true);
+			}
+			
+			else{
+				if(bird.getPositionX()>tube.getMinX() && bird.getPositionX() < tube.getMaxX()){
+					if(!tube.wasCounted()){
+						bird.addPoint();
+						tube.setState(true);
+						System.out.println(bird.getScore());
+					}
+				}	
+			}
 		}
 	}
 	

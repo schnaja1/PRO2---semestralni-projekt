@@ -18,6 +18,9 @@ import cz.uhk.fim.pro2.game.model.World;
 public class GameScreen extends Screen implements WorldListener {
 	private long lastTimeMillis;
 	private Timer timer;
+	private Bird bird;
+	
+	private JLabel jLabelScore, jLabelLives, jLabelGameOver;
 
 	public GameScreen(MainFrame mainFrame) {
 		super(mainFrame);
@@ -35,6 +38,7 @@ public class GameScreen extends Screen implements WorldListener {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				timer.stop();
 				mainFrame.setScreen(new HomeScreen(mainFrame));
 			}
 		});
@@ -52,18 +56,30 @@ public class GameScreen extends Screen implements WorldListener {
 			}
 		});
 		
+		jLabelLives = new JLabel("Lives: " + Bird.DEFAULT_LIVES);
+		jLabelScore = new JLabel("Score: " + Bird.DEFAULT_SCORE);
+		
+		jLabelGameOver = new JLabel("Game Over");
+		
+		jLabelGameOver.setBounds(20,300,300,200);
+		jLabelLives.setBounds(10, 50, 50, 30);
+		jLabelScore.setBounds(10, 80, 50, 30);
 		
 		add(back);
 		add(pause);
+		add(jLabelLives);
+		add(jLabelScore);
 		
-		Bird bird = new Bird("Flappik",240,400);
+		
+		
+		bird = new Bird("Flappik",240,400);
 		World world = new World(bird, this);
 		world.addTube(new Tube(400, 400));
 		world.addTube(new Tube(600, 300));
 		world.addTube(new Tube(800, 500));
 
 		
-		world.addHeart(new Heart(500,450));
+		world.addHeart(new Heart(500,350));
 		System.out.println(world.toString());
 		
 		GameCanvas gameCanvas = new GameCanvas(world);
@@ -86,7 +102,13 @@ public class GameScreen extends Screen implements WorldListener {
 					
 					float deltaTime = (currentTimeMillis - lastTimeMillis) / 1000f;
 					world.update(deltaTime);
-	
+					jLabelScore.setText("Score: " + bird.getScore());
+					jLabelLives.setText("Lives: " + bird.getLives());
+					
+					if(bird.isAlive()){
+						timer.stop();
+				//		add(jLabelGameOver);
+					}
 					
 					gameCanvas.repaint();
 					
@@ -96,25 +118,30 @@ public class GameScreen extends Screen implements WorldListener {
 			
 			lastTimeMillis = System.currentTimeMillis();
 			timer.start();
-			
-		//	System.out.println(world);
 	}
 
 	@Override
 	public void crashTube(Tube tube) {
-		System.out.println("bum");
+		bird.removeLive();
+		bird.setScore(bird.getScore()-1);
+		bird.setPositionY((int)tube.getCenter());
 		
 	}
 
 	@Override
 	public void catchHeart(Heart heart) {
-		System.out.println("mnham");
-		
+		bird.catchHeart();
+		heart.setPositionY(-50);
 	}
 
 	@Override
 	public void outOf() {
-		System.out.println("papa");
+		if(bird.getPositionY()>MainFrame.HEIGHT){
+			bird.setPositionY(0);
+		}
+		if(bird.getPositionY()<0){
+			bird.setPositionY(MainFrame.HEIGHT);
+		}
 		
 	}
 
