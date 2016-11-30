@@ -19,19 +19,23 @@ public class GameCanvas extends Canvas{
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		
-		Bird bird = world.getBird();
-		bird.paint(g);
-		
-		
-		List<Heart> hearts = world.getHearts();
-		for(Heart heart : hearts)
-			heart.paint(g);
+		world.paintBackGround(g);
+	
+
 		
 		List<Tube> tubes = world.getTubes();
 		for(Tube tube : tubes){
 			tube.paint(g);
 		}
+		
+		List<Heart> hearts = world.getHearts();
+		for(Heart heart : hearts)
+			heart.paint(g);
+		
+		world.paintGround(g);
+		
+		Bird bird = world.getBird();
+		bird.paint(g);
 	}
 	
 }

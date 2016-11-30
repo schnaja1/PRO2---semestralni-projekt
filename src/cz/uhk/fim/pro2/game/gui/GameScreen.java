@@ -1,5 +1,6 @@
 package cz.uhk.fim.pro2.game.gui;
 
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -16,12 +17,13 @@ import cz.uhk.fim.pro2.game.model.Tube;
 import cz.uhk.fim.pro2.game.model.World;
 
 public class GameScreen extends Screen implements WorldListener {
+
 	private long lastTimeMillis;
 	private Timer timer;
 	private Bird bird;
 	
 	private JLabel jLabelScore, jLabelLives, jLabelGameOver;
-
+	private int count = 0;
 	public GameScreen(MainFrame mainFrame) {
 		super(mainFrame);
 
@@ -29,9 +31,9 @@ public class GameScreen extends Screen implements WorldListener {
 		JButton back = new JButton("Back");
 		JButton pause = new JButton("Pause");
 		
-		back.setLocation(10, 10);
+		back.setLocation(15, 10);
 		back.setSize(80, 30);
-		pause.setLocation(90, 10);
+		pause.setLocation(380, 10);
 		pause.setSize(80, 30);
 		
 		back.addActionListener(new ActionListener() {
@@ -61,25 +63,23 @@ public class GameScreen extends Screen implements WorldListener {
 		
 		jLabelGameOver = new JLabel("Game Over");
 		
+		jLabelGameOver.setVisible(false);
 		jLabelGameOver.setBounds(20,300,300,200);
-		jLabelLives.setBounds(10, 50, 50, 30);
-		jLabelScore.setBounds(10, 80, 50, 30);
+		jLabelLives.setBounds(150, 10, 80, 30);
+		jLabelScore.setBounds(250, 10, 80, 30);
 		
 		add(back);
 		add(pause);
 		add(jLabelLives);
 		add(jLabelScore);
+		add(jLabelGameOver);
 		
-		
+
 		
 		bird = new Bird("Flappik",240,400);
 		World world = new World(bird, this);
-		world.addTube(new Tube(400, 400));
-		world.addTube(new Tube(600, 300));
-		world.addTube(new Tube(800, 500));
 
-		
-		world.addHeart(new Heart(500,350));
+		world.generateRandom();
 		System.out.println(world.toString());
 		
 		GameCanvas gameCanvas = new GameCanvas(world);
@@ -104,12 +104,17 @@ public class GameScreen extends Screen implements WorldListener {
 					world.update(deltaTime);
 					jLabelScore.setText("Score: " + bird.getScore());
 					jLabelLives.setText("Lives: " + bird.getLives());
-					
-					if(bird.isAlive()){
+					if(!bird.isAlive()){
 						timer.stop();
-				//		add(jLabelGameOver);
+						jLabelGameOver.setVisible(true);
 					}
+					world.regenerate();
+				/*	count++;
+					if(count==100){
 					
+						count=0;
+					}
+					*/
 					gameCanvas.repaint();
 					
 					lastTimeMillis = currentTimeMillis;
@@ -123,7 +128,7 @@ public class GameScreen extends Screen implements WorldListener {
 	@Override
 	public void crashTube(Tube tube) {
 		bird.removeLive();
-		bird.setScore(bird.getScore()-1);
+		//bird.setScore(bird.getScore()-1);
 		bird.setPositionY((int)tube.getCenter());
 		
 	}
@@ -144,5 +149,4 @@ public class GameScreen extends Screen implements WorldListener {
 		}
 		
 	}
-
 }

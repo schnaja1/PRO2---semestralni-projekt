@@ -55,7 +55,7 @@ public class Bird {
 	}
 	
 	public void paint(Graphics g){
-		g.setColor(Color.BLUE);
+		g.setColor(Color.YELLOW);
 		Rectangle rectangle = getRectangle();
 		g.fillRect(
 			(int) rectangle.getX(),
