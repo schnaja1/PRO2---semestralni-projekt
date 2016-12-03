@@ -109,12 +109,7 @@ public class GameScreen extends Screen implements WorldListener {
 						jLabelGameOver.setVisible(true);
 					}
 					world.regenerate();
-				/*	count++;
-					if(count==100){
-					
-						count=0;
-					}
-					*/
+				
 					gameCanvas.repaint();
 					
 					lastTimeMillis = currentTimeMillis;
@@ -128,7 +123,6 @@ public class GameScreen extends Screen implements WorldListener {
 	@Override
 	public void crashTube(Tube tube) {
 		bird.removeLive();
-		//bird.setScore(bird.getScore()-1);
 		bird.setPositionY((int)tube.getCenter());
 		
 	}
