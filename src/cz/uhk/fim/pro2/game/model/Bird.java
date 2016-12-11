@@ -54,6 +54,13 @@ public class Bird {
 		score++;
 	}
 	
+/*	public void checkPosition(){
+		if(positionY>750)
+			this.setPositionY(750);
+		else if(positionY<50)
+			this.setPositionY(50);
+	}
+	*/
 	public void paint(Graphics g){
 		g.setColor(Color.YELLOW);
 		Rectangle rectangle = getRectangle();

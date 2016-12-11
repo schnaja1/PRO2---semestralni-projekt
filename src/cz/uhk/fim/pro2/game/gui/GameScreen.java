@@ -61,10 +61,10 @@ public class GameScreen extends Screen implements WorldListener {
 		jLabelLives = new JLabel("Lives: " + Bird.DEFAULT_LIVES);
 		jLabelScore = new JLabel("Score: " + Bird.DEFAULT_SCORE);
 		
-		jLabelGameOver = new JLabel("Game Over");
+	/*	jLabelGameOver = new JLabel("Game Over");
 		
 		jLabelGameOver.setVisible(false);
-		jLabelGameOver.setBounds(20,300,300,200);
+		jLabelGameOver.setBounds(20,300,300,200);*/
 		jLabelLives.setBounds(150, 10, 80, 30);
 		jLabelScore.setBounds(250, 10, 80, 30);
 		
@@ -72,7 +72,7 @@ public class GameScreen extends Screen implements WorldListener {
 		add(pause);
 		add(jLabelLives);
 		add(jLabelScore);
-		add(jLabelGameOver);
+	//	add(jLabelGameOver);
 		
 
 		
@@ -106,10 +106,9 @@ public class GameScreen extends Screen implements WorldListener {
 					jLabelLives.setText("Lives: " + bird.getLives());
 					if(!bird.isAlive()){
 						timer.stop();
-						jLabelGameOver.setVisible(true);
+						mainFrame.setScreen(new FinishScreen(mainFrame, world));
 					}
 					world.regenerate();
-				
 					gameCanvas.repaint();
 					
 					lastTimeMillis = currentTimeMillis;
@@ -123,6 +122,7 @@ public class GameScreen extends Screen implements WorldListener {
 	@Override
 	public void crashTube(Tube tube) {
 		bird.removeLive();
+		//bird.setScore(bird.getScore()-1);
 		bird.setPositionY((int)tube.getCenter());
 		
 	}
@@ -134,7 +134,7 @@ public class GameScreen extends Screen implements WorldListener {
 	}
 
 	@Override
-	public void outOf() {
+	public void outOf() {	
 		if(bird.getPositionY()>MainFrame.HEIGHT){
 			bird.setPositionY(0);
 		}

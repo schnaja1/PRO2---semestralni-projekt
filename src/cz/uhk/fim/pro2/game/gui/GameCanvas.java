@@ -35,6 +35,7 @@ public class GameCanvas extends Canvas{
 		world.paintGround(g);
 		
 		Bird bird = world.getBird();
+	//	bird.checkPosition();
 		bird.paint(g);
 	}
 	

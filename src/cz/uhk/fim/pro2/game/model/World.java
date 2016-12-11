@@ -82,7 +82,7 @@ public class World {
 		for(Heart heart: hearts){
 			if(heart.getPositionX()< -100){
 				heart.setPositionX(800);
-				heart.setPositionY(Heart.getRandomHeight());
+				heart.setPositionY(heart.getRandomHeight());
 			}
 		}
 	}
