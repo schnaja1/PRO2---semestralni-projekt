@@ -29,7 +29,8 @@ public class FinishScreen extends Screen{
 		newGameJButton.setBounds(140, 300, 200, 50);
 		homeJButton.setBounds(140, 400, 200, 50);
 	
-		ScoreManager.putScore(score);
+	//	ScoreManager.putScore(score);
+		ScoreManager.addScore(score);
 		
 		newGameJButton.addActionListener(new ActionListener(){
 			@Override

@@ -16,12 +16,13 @@ public class ScoreItem extends JPanel {
 		jLabelIndex.setFont(font);
 		jLabelIndex.setBounds(0, 0, 150, 50);
 		
+		add(jLabelIndex);
 		
 		jLabelScore = new JLabel (String.valueOf(score));
 		jLabelScore.setFont(font);
-		jLabelScore.setBounds(0, 100, 150, 50);
+		jLabelScore.setBounds(100, 0, 150, 50);
 		
-		
+		add(jLabelScore);
 	}
 
 }

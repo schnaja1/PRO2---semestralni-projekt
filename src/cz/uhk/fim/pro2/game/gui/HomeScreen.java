@@ -19,10 +19,10 @@ public class HomeScreen extends Screen{
 		jButtonScore.setBounds(100, 460, 280, 50);
 		jButtonSound.setBounds(100, 520, 280, 50);
 		
-		JLabel jLabel = new JLabel("Stay Flappy");
+		JLabel jLabel = new JLabel("Epileptic Bird");
 		
 		jLabel.setFont(new Font("Ärial",Font.BOLD,40));
-		jLabel.setBounds(120,10,240,100);
+		jLabel.setBounds(100,10,300,100);
 		
 		add(jLabel);
 		add(jButtonPlay);

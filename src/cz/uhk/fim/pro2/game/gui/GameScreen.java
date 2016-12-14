@@ -94,7 +94,7 @@ public class GameScreen extends Screen implements WorldListener {
 			
 		});
 			add(gameCanvas);
-			timer = new Timer(20, new ActionListener(){
+			timer = new Timer(10, new ActionListener(){
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
