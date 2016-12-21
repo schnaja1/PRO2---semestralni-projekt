@@ -1,6 +1,5 @@
 package cz.uhk.fim.pro2.game.gui;
 
-import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -8,13 +7,14 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.swing.JComponent;
 
 import cz.uhk.fim.pro2.game.model.Bird;
 import cz.uhk.fim.pro2.game.model.Heart;
 import cz.uhk.fim.pro2.game.model.Tube;
 import cz.uhk.fim.pro2.game.model.World;
 
-public class GameCanvas extends Canvas{
+public class GameCanvas extends JComponent{
 	private World world;
 	private BufferedImage imgBird, imgHeart, imgTube, imgBricks ,imgBackGround, imgGround;
 	

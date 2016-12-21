@@ -1,6 +1,7 @@
 package cz.uhk.fim.pro2.game.gui;
 
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -8,6 +9,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 import cz.uhk.fim.pro2.game.interfaces.WorldListener;
@@ -65,6 +67,8 @@ public class GameScreen extends Screen implements WorldListener {
 		
 		jLabelGameOver.setVisible(false);
 		jLabelGameOver.setBounds(20,300,300,200);*/
+		jLabelLives.setBackground(Color.CYAN);
+		jLabelScore.setBackground(Color.CYAN);
 		jLabelLives.setBounds(150, 10, 80, 30);
 		jLabelScore.setBounds(250, 10, 80, 30);
 		
@@ -106,11 +110,11 @@ public class GameScreen extends Screen implements WorldListener {
 					jLabelLives.setText("Lives: " + bird.getLives());
 					if(!bird.isAlive()){
 						timer.stop();
+						bird.setName(askForBirdName());
 						mainFrame.setScreen(new FinishScreen(mainFrame, world));
 					}
 					world.regenerate();
 					gameCanvas.repaint();
-					
 					lastTimeMillis = currentTimeMillis;
 				}
 			});
@@ -141,6 +145,10 @@ public class GameScreen extends Screen implements WorldListener {
 		if(bird.getPositionY()<0){
 			bird.setPositionY(MainFrame.HEIGHT);
 		}
-		
+	}
+	
+	public String askForBirdName(){
+		String name = JOptionPane.showInputDialog("Zadej prosím jméno hráèe");
+		return(name);
 	}
 }

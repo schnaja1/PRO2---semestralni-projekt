@@ -137,6 +137,10 @@ public class Bird {
 		return name;
 	}
 	
+	public void setName(String name){
+		this.name=name;
+	}
+	
 	public int getPositionX(){
 		return positionX;
 	}
