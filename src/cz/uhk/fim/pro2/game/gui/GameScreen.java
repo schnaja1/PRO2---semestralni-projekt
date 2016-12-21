@@ -37,7 +37,7 @@ public class GameScreen extends Screen implements WorldListener {
 		back.setSize(80, 30);
 		pause.setLocation(380, 10);
 		pause.setSize(80, 30);
-		
+		 
 		back.addActionListener(new ActionListener() {
 			
 			@Override

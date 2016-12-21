@@ -21,7 +21,7 @@ public class ScoreItem extends JPanel {
 		jLabelName.setFont(font);
 		jLabelName.setBounds(25, 0, 150, 20);
 		add(jLabelName);
-		
+		 
 		jLabelScore = new JLabel (String.valueOf(score));
 		jLabelScore.setFont(font);
 		jLabelScore.setBounds(150, 0, 150, 20);

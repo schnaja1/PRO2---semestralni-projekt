@@ -32,7 +32,7 @@ public class GameCanvas extends JComponent{
 			e.printStackTrace();
 		}
 	}
-	
+	 
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);

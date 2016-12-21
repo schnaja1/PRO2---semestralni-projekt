@@ -16,7 +16,7 @@ public class Game {
 		if(!file.exists())
 			try {
 				file.createNewFile();
-				
+				 
 			} catch (IOException e) {
 				System.out.println("Nelze vytvorit soubor.");
 			}

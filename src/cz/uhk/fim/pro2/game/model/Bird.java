@@ -60,7 +60,7 @@ public class Bird {
 			this.setPositionY(750);
 		else if(positionY<50)
 			this.setPositionY(50);
-	}
+	} 
 	*/
 	public void paint(Graphics g, BufferedImage img){
 

@@ -32,7 +32,7 @@ public class Heart {
 					(int)rectangle.getY(),
 					(int) rectangle.getHeight(),
 					(int) rectangle.getWidth(),
-					null);
+		 			null);
 		}
 	}
 	

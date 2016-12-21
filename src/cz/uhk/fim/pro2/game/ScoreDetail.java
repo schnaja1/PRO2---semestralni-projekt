@@ -13,7 +13,7 @@ public class ScoreDetail {
 		this.score=score;
 		this.date=new Date().toLocaleString();
 	}
-	
+	 
 	public ScoreDetail(String name, int score, String date){
 		this.name=name;
 		this.score=score;

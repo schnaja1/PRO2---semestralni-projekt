@@ -94,7 +94,7 @@ public class ScoreManager {
 			List<ScoreDetail> scoreList = getAll();
 			scoreList.add(new ScoreDetail(name, currentScore));
 			scoreList = sortList(scoreList);
-			
+			 
 			if(name==null)
 				return;
 			

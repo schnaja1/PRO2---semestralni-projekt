@@ -52,7 +52,7 @@ public class World {
 			}
 		}
 	}
-	
+	 
 	public World(Bird bird, WorldListener worldListener){
 		this.bird=bird;
 		tubes = new ArrayList<>();

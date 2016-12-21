@@ -26,7 +26,7 @@ public class ScoreScreen extends Screen{
 			scoreItem.setBounds(40,200+i*40,400,20);	
 			add(scoreItem);
 		}
-		 
+		  
 		JButton jButtonBack = new JButton("Back");
 		
 

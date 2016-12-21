@@ -38,7 +38,7 @@ public class Tube {
 		this.color = color;
 		state = false;
 	}
-	
+	 
 	public static float getRandomHeight(){
 		return new Random().nextFloat()*400+200;
 	}

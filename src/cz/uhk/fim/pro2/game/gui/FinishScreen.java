@@ -22,7 +22,7 @@ public class FinishScreen extends Screen{
 		
 		scoreJLabel.setFont(new Font("Arial", Font.BOLD, 20));
 		scoreJLabel.setBounds(150, 100, 300, 100);
-		
+		 
 		JButton newGameJButton = new JButton("New Game");
 		JButton homeJButton = new JButton("Home Screen");
 		
